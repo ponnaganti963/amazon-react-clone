@@ -1,0 +1,54 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: flex-start;
+    margin: 10px;
+    padding: 20px;
+    max-height: 400px;
+    min-width: 100px;
+    background-color: white;
+    z-index: 1;
+}
+
+.product__rating{
+    display: flex;
+}
+
+.product__info{
+    margin-bottom: 15px;
+}
+.product__price{
+    margin-top: 5px;
+}
+.product > img{
+    max-height: 200px;
+    width: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.product__button{
+    background-color: #f0c14b;
+    border: 1px solid;
+    margin-top: 10px;
+    align-self: center;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+}
+
+.Indian_currency{
+    /* background: url(https://images-eu.ssl-images-amazon.com/images/G/31/common/sprites/sprite-site-wide-2._V1_.png);
+    background-repeat: no-repeat;
+    background-position: -20px -402px; */
+    margin-right: 2px;
+
+}
+
+@media (min-width: 600px) {
+    .product{
+        width: 100%;
+    }
+}
