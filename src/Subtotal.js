@@ -4,8 +4,10 @@ import NumberFormat from 'react-number-format';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useStateValue } from './StateProvider';
 import { getCartTotal , getTotal } from './reducer';
+import { useNavigate } from 'react-router';
 
 function Subtotal() {
+    const navigator = useNavigate();
     const [{cart},dispatch] = useStateValue();
     return (
         <div className='checkout__subtotal'>
@@ -24,7 +26,7 @@ function Subtotal() {
                 <p style={{marginTop:'20px',fontSize:'20px'}}>
                     Subtotal ({getTotal(cart)} items):<strong>{value}</strong>
                 </p>
-                <button className='proceed__buy'>Proceed to Buy</button>
+                <button onClick={e => navigator('/payments')} className='proceed__buy'>Proceed to Buy</button>
                 </>
             ) }
             />

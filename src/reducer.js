@@ -1,5 +1,6 @@
 export const initialState = {
     cart: [],
+    user: null
 };
 
 export const getTotal = (cart) =>
@@ -21,11 +22,11 @@ const reducer = (state,action) => {
             };
         case 'INCREMENT_COUNT':
             var l = -1;
-            state.cart.forEach((e,i)=> {if(e['id'] == action.item.id){l = i }})
+            state.cart.forEach((e,i)=> {if(e['id'] === action.item.id){l = i }})
             console.log(l);
-            if (l != -1){
+            if (l !== -1){
                 state.cart[l]['count'] = action.item.count
-            }
+            };
 
         case 'REMOVE_FROM_CART':
             const index = state.cart.findIndex(
@@ -43,6 +44,16 @@ const reducer = (state,action) => {
             return {
                 ...state,
                 cart: newCart
+            }
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            }
+        case 'EMPTY_CART':
+            return {
+                ...state,
+                cart: []
             }
         default:
             return state;

@@ -6,12 +6,14 @@ import Subtotal from './Subtotal';
 import {Link} from 'react-router-dom';
 
 
-function Checkout() {
-    const [{cart} , dispatch] = useStateValue();
+function Checkout({title}) {
+    const [{cart,user} , dispatch] = useStateValue();
+    document.title = title;
 
     return (
         <div className='checkout'>
             <div className="checkout__left">
+                <h3>Hello, {user ? user.email.split('@')[0] : 'Guest'}</h3>
                 {
                     
                     cart.length ?
@@ -40,8 +42,8 @@ function Checkout() {
                         <h2>
                             Add your products to Buy..
                             <Link to='/' style={{textDecoration:'none'}}>
-                            <span >continue Shopping</span>
-                        </Link>
+                            <span style={{color:'red'}}>continue Shopping</span>
+                             </Link>
                         </h2>
                         
                         </>
@@ -50,7 +52,7 @@ function Checkout() {
                 }
             </div>
             <div className="checkout__right">
-                <img className='amazonSecure_img' src='https://images-eu.ssl-images-amazon.com/images/G/31/checkout/assets/TM_desktop._CB443006202_.png'/>
+                <img className='amazonSecure_img' alt='amazon image' src='https://images-eu.ssl-images-amazon.com/images/G/31/checkout/assets/TM_desktop._CB443006202_.png'/>
                 {
                     cart?.length ?
                     <Subtotal /> : ''

@@ -7,13 +7,14 @@
     z-index: 100;
     background-color: black;
     color: white;
+    justify-content: space-between;
 }
 
 .header_logo{
     width: 100px;
     object-fit: contain;
     margin: 0 20px;
-    margin-top: 10px;
+    margin-top: 5px;
 
 }
 
@@ -43,13 +44,29 @@
 .header_nav{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    
 }
 
 .header_option{
     display: flex;
     flex-direction: column;
-    margin: 0 10px 0 10px;
+    margin: 0 10px;
+      
+    height: 40px;
+}
 
+.border__hoverEffect{
+    border: 2px solid black;
+    padding:5px;
+    border-radius: 5px;
+    transition: all 0.4s linear;
+}
+
+
+
+.border__hoverEffect:hover{
+    border: 2px solid white;
 }
 
 a{
@@ -70,9 +87,20 @@ a{
     display: flex;
     align-items: center;
     color: #fff;
+    height: 35px;
 
 }
 
 .header_basketCount{
     margin: auto 10px;
+}
+
+
+@media (max-width: 700px) {
+    /* .header_option{
+        margin: 0 5px;
+    } */
+    .header_search{
+        display: none;
+    }
 }
