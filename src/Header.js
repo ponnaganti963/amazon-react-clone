@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -9,11 +9,17 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 function Header() {
     const [{cart,user}, dispatch] = useStateValue();
-
     const handleAuthentication = () =>{
         if (user){
             auth.signOut();
         }
+    }
+
+    const hide = () =>{
+        document.querySelector('.showAccounts').style.display = 'none';
+    }
+    const show = () =>{
+        document.querySelector('.showAccounts').style.display = 'block';
     }
 
     return (
@@ -27,17 +33,25 @@ function Header() {
             </div>
             <div className='header_nav'>
                 
-            <Link to={!user && '/login'}>
-                <div onClick={handleAuthentication} className='header_option border__hoverEffect'>
+                <div className='header_option border__hoverEffect'  onMouseEnter={show} onMouseLeave={hide}>
                     <span className='header_option1'>
-                       Hello, {user ? (user.email.split('@')[0].length > 10 ? user.email.split('@')[0].substr(0,10) :user.email.split('@')[0]):'Sign in'}
+                       Hello, {user?.name ? user?.name.split(' ')[0]:'Guests'}
                     </span>
                    
-                    <span className='header_option2'>
-                      {!user ? 'Sign In' : 'Sign Out'}
+                    <span className='header_option2' style={{position:'relative',paddingRight: '10px'}} >
+                        {!user ? 'Sign In' : 'Account'}
+                        <ArrowDropDownIcon style={{fontSize: '20px',position: 'absolute'}}/>
+                      
                     </span>
+
+                    <div className="showAccounts">
+                        <h1>Your Account</h1>
+                        <Link to='/Account'><p className='list_items'>Your Account</p></Link>
+                        <Link to='/orders'> <p className='list_items'>Your Order</p> </Link>
+                        <Link to='/checkout'> <p className='list_items'>Your Cart</p> </Link>
+                        <Link to={!user && '/login'}> <p className='list_items' onClick={handleAuthentication}>{user ? 'Sign Out': 'Sign In'}</p> </Link>
+                    </div>
                 </div>
-            </Link>
             <Link to='/orders'>
                 <div className="header_option border__hoverEffect">
                     <span className='header_option1'>

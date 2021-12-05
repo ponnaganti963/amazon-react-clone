@@ -10,11 +10,6 @@ h2{
     margin: 0;
 }
 
-.order__id{
-    position: absolute;
-    top: 40px;
-    right: 20px;
-}
 
 .order__total{
     font-size: 20px;

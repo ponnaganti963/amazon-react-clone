@@ -5,14 +5,15 @@ import Home from './Home';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Checkout from './Checkout';
 import Login from './Login';
-import {auth} from './firebase';
-import { useEffect } from 'react';
+import {auth, db} from './firebase';
+import { useEffect, useState } from 'react';
 import { useStateValue } from './StateProvider';
 import Payments from './Payments';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import Orders from './Orders';
 import Signup from './Signup';
+import Account from './Account';
 
 const promise = loadStripe(
   "pk_test_51K0nq2SAE8S9CQj27QYk7eqXri2kk5jAUtHxWsNqLfgeW8j1aMfwCpDBiQIZBUNBBK0YdYuXY23YMe86yP6H1dxy00EE61slj0"
@@ -20,26 +21,42 @@ const promise = loadStripe(
 
 function App() {
 
-  const [{},dispatch] = useStateValue();
+  const [{user},dispatch] = useStateValue();
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
-      
+      console.log('final data',user);
       if(authUser){
+            db.collection('users')
+           .doc(authUser.uid)
+           .collection('account').onSnapshot(snapshot =>{
+               
+               dispatchData(snapshot.docs[0].data().name,snapshot.docs[0].data().phone)
+               
+           })
+           console.log('sdfasfsdf',authUser,user)
+           function dispatchData(name,phone){
+            dispatch({
+              type: 'SET_USER',
+              user: {
+                userId: authUser.uid,
+                email: authUser.email,
+                name: name,
+                phone: phone
+              }
+            });
 
-        dispatch({
-          type: 'SET_USER',
-          user: authUser
-        });
-
-      }else{
+           }
         
+      }else{
         dispatch({
           type: 'SET_USER',
           user: null
         });
       }
     });
-  }, []);
+
+
+  }, [auth]);
   return (
 
     <Router>
@@ -68,12 +85,20 @@ function App() {
                 </>
                 }
               />
+              <Route path='/Account'
+              element={
+                <>
+                <Header/> 
+                <Account title="Your Account"/>
+                </>
+                }
+              />
               <Route path='/payments'
               element={
                 <>
                 <Header/>
                 <Elements stripe={promise}> 
-                <Payments/>
+                <Payments title="Payments"/>
                 </Elements>
                 </>
                 }
@@ -82,7 +107,7 @@ function App() {
               element={
                 <>
                 <Header/>
-                <Orders/>
+                <Orders title="Your Orders"/>
                 </>
                 }
               />

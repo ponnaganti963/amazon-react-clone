@@ -4,13 +4,14 @@ import {db} from './firebase';
 import { useStateValue } from './StateProvider';
 import Order from './Order';
 
-function Orders() {
+function Orders({title}) {
+    document.title = title;
     const [orders, setOrders] = useState([]);
-    const [{cart, user}, dispatch] = useStateValue();
+    const [{user}] = useStateValue();
     useEffect(() =>{
         if(user){
         db.collection('users')
-        .doc(user?.uid)
+        .doc(user?.userId)
         .collection('orders')
         .orderBy('created','desc')
         .onSnapshot(snapshot =>{

@@ -49,6 +49,7 @@
     outline: 0;
 }
 
+
 .login__container > form > input:focus{
     border-color: #e77600;
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
@@ -78,5 +79,12 @@
     z-index: 2;
 }
 
+.error_msg, .required{
+    color: red;
+    font-size: 14px;
+    margin:  5px;
+}
 
-
+.login__signinButton:disabled{
+    opacity: 0.6;
+}

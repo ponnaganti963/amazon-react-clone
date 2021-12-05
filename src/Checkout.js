@@ -7,13 +7,13 @@ import {Link} from 'react-router-dom';
 
 
 function Checkout({title}) {
-    const [{cart,user} , dispatch] = useStateValue();
+    const [{cart,user}] = useStateValue();
     document.title = title;
 
     return (
         <div className='checkout'>
             <div className="checkout__left">
-                <h3>Hello, {user ? user.email.split('@')[0] : 'Guest'}</h3>
+                <h3>Hello, {user?.name ? user.name.split(' ')[0] : 'Guest'}</h3>
                 {
                     
                     cart.length ?

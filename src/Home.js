@@ -5,7 +5,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 
 function Home({title}) {
-  document.title = title;
+  
+
+  document.title = title; 
     return (
         <div className='home'>
         <div className="home__container">
@@ -17,12 +19,14 @@ function Home({title}) {
             </Carousel>
   
             <div className="home__row">
+            
               <Product
                 id="12321341"
                 title="HP Pavilion x360 11th Gen Intel Core i3 14-inch(35.6 cm) FHD Touchscreen Convertible Laptop (8GB/512GB SSD/Windows 10/MS Office 2019/Fingerprint Reader/1.52kg), 14-dy0002TU, Silver"
                 price={58990}
                 rating={5}
                 image="https://images-eu.ssl-images-amazon.com/images/I/419V1PlZ3TL._SY300_SX300_QL70_FMwebp_.jpg"
+  
               />
               <Product
                 id="49538094"

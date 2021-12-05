@@ -5,7 +5,6 @@
     justify-content: flex-start;
     margin: 10px;
     padding: 20px;
-    min-height: 400px;
     min-width: 100px;
     background-color: white;
     z-index: 1;
@@ -22,11 +21,9 @@
     margin-top: 5px;
 }
 .product > img{
-    min-height: 200px;
     width: 150px;
     object-fit: contain;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    margin: 10px auto;
     align-self: center;
 }
 

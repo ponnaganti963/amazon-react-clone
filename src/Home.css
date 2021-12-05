@@ -13,6 +13,37 @@
     margin: auto 5px;
 }
 
+.home__accountCard{
+    box-sizing: border-box;
+    background-color: #ffffff !important;
+    margin: 10px;
+    min-height: 200px;
+    min-width: 250px;
+    z-index: 1;
+    padding: 20px;
+}
+
+.profile__pic{
+    height: 80px !important;
+    width: 80px !important;
+    border-radius: 50%;
+}
+.user__name{
+    margin-left: 10px;
+}
+.profile_div{
+    display: flex;
+}
+.account__wrapper{
+    display: flex;
+}
+.orders__div, .account__div{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
 .home__container{
     width: 100%;
 }

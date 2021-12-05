@@ -9,7 +9,8 @@ import { getCartTotal , getTotal } from './reducer';
 import axios from './axios';
 import {db} from './firebase';
 
-function Payments() {
+function Payments({title}) {
+    document.title = title;
     const [{cart,user}, dispatch] = useStateValue();
     const [error, setError] = useState(null);
     const [disabled, SetDisabled] = useState(true);
@@ -45,9 +46,9 @@ function Payments() {
             }
         }).then(({ paymentIntent }) =>{
             //PaymentIntent is payment confirmation 
-
+            console.log(user,user.user)
             db.collection('users')
-            .doc(user?.uid)
+            .doc(user?.userId)
             .collection('orders')
             .doc(paymentIntent.id)
             .set({
@@ -86,6 +87,7 @@ function Payments() {
                         <p>{user?.email}</p>
                         <p>3-143, Behind old Andhra bank</p>
                         <p>Malikipuram, Andhra Pradesh</p>
+                        <p>{user?.phone}</p>
                     </div>
 
                 </div>
