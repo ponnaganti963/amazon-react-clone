@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 import './Product.css';
 import { useStateValue } from './StateProvider';
 
@@ -33,10 +34,19 @@ function Product({id, title, image, price, rating}) {
         <div className='product'>
             <div className="product__info">
                 <p>{title}</p>
-                <p className='product__price'>
-                    <span className='Indian_currency'>₹</span>
-                    <strong>{price}</strong>
-                </p>
+                <NumberFormat
+                    value={price} 
+                    displayType={'text'} 
+                    thousandSeparator={true}
+                    prefix={'₹'}
+                    renderText={(value, props) =>(
+                        <>
+                        <p className='product__price'>
+                            <strong>{value}</strong>
+                        </p>
+                        </>
+                    ) }
+                />
                 <div className="product__rating">
                     {Array(rating)
                         .fill()

@@ -1,0 +1,16 @@
+.account{
+    
+    background-color: rgb(221, 220, 218);
+    padding: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+
+}
+
+.profile_div{
+    border-bottom: 1px solid black;
+}
+
+.account p {
+    margin: 10px;
+}

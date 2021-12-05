@@ -5,7 +5,6 @@
     justify-content: flex-start;
     margin: 10px;
     padding: 20px;
-    max-height: 400px;
     min-width: 100px;
     background-color: white;
     z-index: 1;
@@ -22,11 +21,9 @@
     margin-top: 5px;
 }
 .product > img{
-    max-height: 200px;
     width: 150px;
     object-fit: contain;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    margin: 10px auto;
     align-self: center;
 }
 
@@ -39,13 +36,6 @@
     color: #111;
 }
 
-.Indian_currency{
-    /* background: url(https://images-eu.ssl-images-amazon.com/images/G/31/common/sprites/sprite-site-wide-2._V1_.png);
-    background-repeat: no-repeat;
-    background-position: -20px -402px; */
-    margin-right: 2px;
-
-}
 
 @media (min-width: 600px) {
     .product{
