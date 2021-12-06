@@ -69,22 +69,25 @@
     max-width: 250px;
     top: 53px;
     left: -250%;
+    display: none;
     /* transform: translateX(-50%); */
     color: black;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid rgb(126, 124, 124);
     position: absolute;
-    transition: display 0.1s linear;
+    transition: all 0.4s linear;
     cursor:auto;
 }
 
 .list_items{
     font-size: 1rem;
     color: black;
+    border-bottom: 0.5px solid rgb(129, 126, 126);
+    border-bottom-style: dashed;
 }
 .showAccounts > h1{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black ;
 }
 
 

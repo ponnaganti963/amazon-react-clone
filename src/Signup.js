@@ -1,4 +1,4 @@
-import React ,{useState,useEffect} from 'react';
+import React ,{useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Signup.css';
 import {auth,db} from './firebase';
@@ -8,7 +8,7 @@ function Signup({title}) {
     document.title = title;
     const navigate = useNavigate();
     const [valid, setValid] = useState(false);
-    const [{user},dispatch] = useStateValue();
+    const [{},dispatch] = useStateValue();
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [number, setnumber] = useState('')

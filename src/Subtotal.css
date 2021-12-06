@@ -1,10 +1,13 @@
 .checkout__subtotal{
    min-height: 150px;
-   margin: 10px 0;
+   margin: 10px auto;
    border-radius: 5px;
    background-color: #fff;
    color: #000;
    padding: 20px;
+   position: sticky;
+   top: 75px;
+   border: 1px solid rgb(146, 144, 144);
 }
 
 .green_text > span{
@@ -19,4 +22,16 @@
     border-color: #FCD200;
     border-radius: 8px;
     box-shadow: 0 2px 5px 0 rgb(213, 217, 217 / 50%);
+}
+
+@media (max-width: 900px){
+    .checkout__subtotal{
+        
+        position:fixed;
+        margin: 0;
+        left: -15px;
+        bottom: 0;
+        top: auto;
+        width: 97%;
+    }
 }

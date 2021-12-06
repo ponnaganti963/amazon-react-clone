@@ -55,5 +55,8 @@ h2{
     .checkout{
         flex-direction: column;
     }
+    .amazonSecure_img{
+        margin-bottom: 200px;
+    }
 
 }

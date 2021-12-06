@@ -3,7 +3,6 @@ import './Order.css';
 import moment from "moment";
 import CheckoutProduct from './CheckoutProduct';
 import NumberFormat from 'react-number-format';
-import {getCartTotal,getTotal} from './reducer';
 
 function Order({order}) {
 

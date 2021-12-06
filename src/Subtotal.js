@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router';
 
 function Subtotal() {
     const navigator = useNavigate();
-    const [{cart},dispatch] = useStateValue();
+    const [{cart}] = useStateValue();
     return (
-        <div className='checkout__subtotal'>
+        <div className='checkout__subtotal' key={cart.id}>
             <NumberFormat 
             value={getCartTotal(cart)} 
             displayType={'text'} 

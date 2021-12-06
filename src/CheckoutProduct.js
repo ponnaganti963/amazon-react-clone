@@ -48,7 +48,7 @@ function CheckoutProduct({id, image, title, price, rating,count, hideButton}) {
                         <span>{count}</span>
                     ):
                     (
-                        <select className='product__Quantity' name='quantity' onChange={changeQuantity}>
+                        <select className='product__Quantity' name='quantity' onChange={changeQuantity} value={count}>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
                     <option value='3'>3</option>

@@ -8,7 +8,7 @@ import { auth } from './firebase';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 function Header() {
-    const [{cart,user}, dispatch] = useStateValue();
+    const [{cart,user}] = useStateValue();
     const handleAuthentication = () =>{
         if (user){
             auth.signOut();

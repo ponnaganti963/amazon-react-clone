@@ -23,23 +23,10 @@ function Login({title}) {
 
     }
 
-    function dispatchData(name,phone){
-        dispatch({
-            type: 'SET_USER',
-            user: {
-                userId: Auth.user.uid,
-                email: email,
-                name: name,
-                phone: phone
-            }
-          });
-          navigate('/');
-
-    }
+    
 
     useEffect(()=>{
         if(Auth){
-            let displayName = '';
             db.collection('users')
            .doc(Auth.user.uid)
            .collection('account').onSnapshot(snapshot =>{
@@ -47,6 +34,19 @@ function Login({title}) {
                
            })
 
+        }
+        function dispatchData(name,phone){
+            dispatch({
+                type: 'SET_USER',
+                user: {
+                    userId: Auth.user.uid,
+                    email: email,
+                    name: name,
+                    phone: phone
+                }
+              });
+              navigate('/');
+    
         }
        
     },[Auth])
